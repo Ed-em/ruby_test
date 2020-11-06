@@ -1,14 +1,17 @@
 <h1>Blog list</h1>
+<p><%= notice %></p>
 <table>
   <tr>
     <th>Title</th>
     <th>Content</th>
   </tr>
-<%= @blogs.each do |blog| %>
+<% @blogs.each do |blog| %>
   <tr>
     <td><%= blog.title %></td>
     <td><%= blog.content %></td>
     <td><%= link_to 'Check the details', blog_path(blog.id)%></td>
+    <td><%= link_to "Edit blog", edit_blog_path(blog.id) %></td>
+    <td><%= link_to 'Delete blog', blog_path(blog.id), method: :delete %></td>
   </tr>
 <% end %>
 </table>
